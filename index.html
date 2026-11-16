@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Social Media Overview Project</title>
+<meta name="description" content="Interactive social media dashboard and flip-book report — Business Data Analysis, University of Jeddah.">
+<link rel="icon" href="assets/uj-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home"><img src="assets/uj-logo.png" alt="University of Jeddah logo"><span><b>Social Media Overview</b><small>Business Data Analysis</small></span></a>
+  <nav class="mainnav" aria-label="Sections">
+    <a href="#home" data-sec="home">Home</a>
+    <a href="#dashboard" data-sec="dashboard">Dashboard</a>
+    <a href="#report" data-sec="report">Report</a>
+  </nav>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<section id="sec-home" class="sec">
+  <div class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">University of Jeddah · Department of Management Information Systems</p>
+      <p class="year">2026</p>
+      <h1><span class="boxed">S</span>ocial Media<br>Overview Project</h1>
+      <p class="lead">Track performance, measure engagement and make smarter decisions — an interactive dashboard and a full written report built on 5,600 social media posts across six platforms.</p>
+      <div class="cta">
+        <a class="btn primary" href="#dashboard">Open the dashboard</a>
+        <a class="btn ghost" href="#report">Read the report</a>
+      </div>
+    </div>
+    <svg class="hero-globe" viewBox="0 0 420 420" aria-hidden="true"><g fill="none" stroke="#7A70E0" stroke-opacity=".45" stroke-width="1"><circle cx="210" cy="210" r="200"/><ellipse cx="210" cy="210" rx="41.6" ry="200"/><ellipse cx="210" cy="210" rx="81.3" ry="200"/><ellipse cx="210" cy="210" rx="117.6" ry="200"/><ellipse cx="210" cy="210" rx="148.6" ry="200"/><ellipse cx="210" cy="210" rx="173.2" ry="200"/><ellipse cx="210" cy="210" rx="190.2" ry="200"/><ellipse cx="210" cy="210" rx="198.9" ry="200"/><line x1="210" y1="10" x2="210" y2="410"/><line x1="158.2" y1="403.2" x2="261.8" y2="403.2"/><line x1="110.0" y1="383.2" x2="310.0" y2="383.2"/><line x1="68.6" y1="351.4" x2="351.4" y2="351.4"/><line x1="36.8" y1="310.0" x2="383.2" y2="310.0"/><line x1="16.8" y1="261.8" x2="403.2" y2="261.8"/><line x1="10.0" y1="210.0" x2="410.0" y2="210.0"/><line x1="16.8" y1="158.2" x2="403.2" y2="158.2"/><line x1="36.8" y1="110.0" x2="383.2" y2="110.0"/><line x1="68.6" y1="68.6" x2="351.4" y2="68.6"/><line x1="110.0" y1="36.8" x2="310.0" y2="36.8"/><line x1="158.2" y1="16.8" x2="261.8" y2="16.8"/></g></svg>
+  </div>
+  <div class="home-stats" id="homeStats"></div>
+  <div class="students">
+    <h2>Prepared by</h2>
+    <ul>
+      <li>Yazan Al-Zahrani</li><li>Asem Al-Aslani</li><li>Rami Al-Safri</li><li>Ahmed Al-Sharif</li><li>Yazan Al-Mahi</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= DASHBOARD ================= -->
+<section id="sec-dashboard" class="sec" hidden>
+  <div class="dash-head">
+    <div>
+      <h1 id="pageTitle">Executive Overview</h1>
+      <p id="pageSub">Social media performance at a glance</p>
+    </div>
+    <div class="filters">
+      <label class="filter"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <select id="fYear" aria-label="Year"><option value="all">All years</option><option value="2024">2024</option><option value="2025">2025</option></select></label>
+      <label class="filter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg>
+        <select id="fPlat" aria-label="Platform"><option value="-1">All platforms</option></select></label>
+    </div>
+  </div>
+  <div class="tabs" role="tablist">
+    <button role="tab" data-page="exec" aria-selected="true">Executive Overview</button>
+    <button role="tab" data-page="content" aria-selected="false">Content Insights</button>
+    <button role="tab" data-page="platform" aria-selected="false">Platform Performance</button>
+  </div>
+  <p class="hint">Tip: hover any chart for exact values, and click a platform in a chart to filter the whole page.</p>
+
+  <!-- Executive -->
+  <div class="page" data-page="exec">
+    <div class="kpis k5" id="kExec"></div>
+    <div class="grid g-2-1">
+      <div class="card"><h3>Engagement Trend</h3><p class="sub">Monthly engagements — 2025 vs 2024</p><div class="chart" id="cTrend"></div></div>
+      <div class="card"><h3>Platform Share</h3><p class="sub">Reach by platform · click a slice to filter</p><div class="chart" id="cShare"></div></div>
+    </div>
+    <div class="grid g-1-2">
+      <div class="card"><h3>Content Mix</h3><p class="sub">Engagement by content type</p><div class="chart" id="cMix"></div></div>
+      <div class="card"><h3>Country Performance</h3><p class="sub">Engagement, growth and monthly trend by country</p><div class="tablewrap"><table class="ctable" id="tCountry"></table></div></div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="page" data-page="content" hidden>
+    <div class="kpis k4" id="kContent"></div>
+    <div class="grid g-2-1">
+      <div class="card"><h3>Engagement Rate by Category</h3><p class="sub">Which content topics engage the audience most</p><div class="chart" id="cCat"></div></div>
+      <div class="card"><h3>Engagement Level</h3><p class="sub">Share of posts by performance tier</p><div class="chart" id="cLevel"></div></div>
+    </div>
+    <div class="grid g-3">
+      <div class="card"><h3>Top Hashtags</h3><p class="sub">Engagement rate of the top 8 hashtags</p><div class="chart tall" id="cTags"></div></div>
+      <div class="card"><h3>Format Efficiency</h3><p class="sub">Engagement rate by post type</p><div class="chart tall" id="cFormat"></div></div>
+      <div class="card"><h3>Best Time to Post</h3><p class="sub">Engagement rate by weekday &amp; hour</p><div class="chart tall" id="cHeat"></div></div>
+    </div>
+  </div>
+
+  <!-- Platform -->
+  <div class="page" data-page="platform" hidden>
+    <div class="kpis k4" id="kPlat"></div>
+    <div class="grid g-2-1">
+      <div class="card"><h3>Platform Ranking Over Time</h3><p class="sub">Monthly engagement rank by platform (1 = highest)</p><div class="chart" id="cRank"></div></div>
+      <div class="card"><h3>Reach vs Efficiency</h3><p class="sub">Top-right = best · bubble size = posts</p><div class="chart" id="cBubble"></div></div>
+    </div>
+    <div class="grid g-1-1">
+      <div class="card"><h3>Format Mix by Platform</h3><p class="sub">Posts by platform and post type</p><div class="chart" id="cFmtMix"></div></div>
+      <div class="card"><h3>Clicks &amp; Click-Through Rate</h3><p class="sub">Facebook, TikTok &amp; LinkedIn only</p><div class="chart" id="cClicks"></div></div>
+    </div>
+  </div>
+  <p class="note" id="dataNote"></p>
+</section>
+
+<!-- ================= REPORT ================= -->
+<section id="sec-report" class="sec" hidden>
+  <div class="rep-head">
+    <div><h1>The Report</h1><p>Flip through the pages — click a page corner, drag it, or use the arrows.</p></div>
+    <a class="btn primary small" href="report/Social-Media-Overview-Report.pdf" download>Download PDF</a>
+  </div>
+  <div class="book-wrap"><div id="book"></div></div>
+  <div class="book-ctrl">
+    <button class="round" id="bPrev" aria-label="Previous page">&#8592;</button>
+    <span id="bInfo">Cover</span>
+    <button class="round" id="bNext" aria-label="Next page">&#8594;</button>
+  </div>
+</section>
+</main>
+
+<footer class="foot">Social Media Overview Project · Business Data Analysis · University of Jeddah · 2026</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
